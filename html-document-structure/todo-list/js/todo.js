@@ -11,7 +11,6 @@ for (const affair of affairs) {
 
 function updateTodoList(event) {
   const checkbox = event.currentTarget.querySelector('[type="checkbox"]');
-  checkbox.classList.toggle('checked');
   if (checkbox.checked) {
     doneList.appendChild(event.currentTarget);
   } else {
