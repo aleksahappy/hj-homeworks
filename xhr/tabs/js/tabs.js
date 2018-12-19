@@ -21,9 +21,11 @@ function sendRequest(url) {
 
 function showTab(event) {
   event.preventDefault();
-  sendRequest(event.currentTarget.href);
-  tabs.forEach(tab => tab.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  if (!event.currentTarget.classList.contains('active')) {
+    sendRequest(event.currentTarget.href);
+    tabs.forEach(tab => tab.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
 }
 
 function loadTab() {
