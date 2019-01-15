@@ -7,13 +7,6 @@ function showComments(list) {
 }
 
 function createTemplate(comment) {
-  const textComment = comment.text.split('\n').map(element => {
-    return {
-      tag: 'span',
-      content: [element, {tag: 'br'}]
-    }
-  });
-
   return {
     tag: 'div',
     cls: 'comment-wrap',
@@ -35,7 +28,15 @@ function createTemplate(comment) {
           {
             tag: 'p',
             cls: 'comment-text',
-            content: textComment
+            // Переносы строк с помощью пустого текствого узла и тега <br>:
+            content: comment.text.split('\n').map(element => [element, {tag: 'br'}])
+            // Переносы строк с помощью тегов <span> и <br>:
+            // content: comment.text.split('\n').map(element => {
+            //   return {
+            //     tag: 'span',
+            //     content: [element, {tag: 'br'}]
+            //   }
+            // })
           },
           {
             tag: 'div',
