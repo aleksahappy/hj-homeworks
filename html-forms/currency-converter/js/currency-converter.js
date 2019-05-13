@@ -16,7 +16,7 @@ xhr.open('GET', 'https://neto-api.herokuapp.com/currency');
 xhr.send();
 
 converterForm.addEventListener('input', convertCurrency);
-fromСurrency.addEventListener('change', convertCurrency);
+fromCurrency.addEventListener('change', convertCurrency);
 toCurrency.addEventListener('change', convertCurrency);
 
 function loadCurrency() {
@@ -25,7 +25,7 @@ function loadCurrency() {
 
     loadedCurrency.forEach(currency => {
       const optionCurrency = `<option label="${currency.code}" value="${currency.value}"></option>`;
-      fromСurrency.innerHTML += optionCurrency;
+      fromCurrency.innerHTML += optionCurrency;
       toCurrency.innerHTML += optionCurrency;
     });
     convertCurrency();
@@ -46,6 +46,6 @@ function hiddenLoader() {
 }
 
 function convertCurrency() {
-  const result = (inputField.value * fromСurrency.value / toCurrency.value).toFixed(2);
+  const result = (inputField.value * fromCurrency.value / toCurrency.value).toFixed(2);
   conversionResult.value = result;
 }
